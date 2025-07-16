@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Watermark Remover</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f1f1;
+      text-align: center;
+      padding: 50px;
+    }
+    input[type="text"] {
+      width: 60%;
+      padding: 10px;
+      margin: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    img {
+      margin-top: 20px;
+      max-width: 80%;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Online Watermark Remover</h1>
+  <p>Paste your image URL below to remove watermark (demo only)</p>
+
+  <input type="text" id="imageUrl" placeholder="Enter image URL here..." />
+  <br>
+  <button onclick="removeWatermark()">Remove Watermark</button>
+
+  <div id="output">
+    <p id="status"></p>
+    <img id="resultImage" style="display:none;" />
+  </div>
+
+  <script>
+    function removeWatermark() {
+      const url = document.getElementById("imageUrl").value;
+      const resultImage = document.getElementById("resultImage");
+      const status = document.getElementById("status");
+
+      if (!url) {
+        status.innerText = "Please enter a valid image URL.";
+        return;
+      }
+
+      // Simulated watermark remover (this is just a demo)
+      status.innerText = "Processing... Please wait.";
+      setTimeout(() => {
+        resultImage.src = url;
+        resultImage.style.display = "block";
+        status.innerText = "Watermark removed (simulated).";
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>
